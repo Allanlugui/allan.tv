@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier da Pregação</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand__logo">AP</div>
+          <div>
+            <h1>Atelier da Pregação</h1>
+            <p>Esboços, notas e mapa mental em um só lugar.</p>
+          </div>
+        </div>
+
+        <div class="sidebar__actions">
+          <button id="new-sermon" class="primary">Novo esboço</button>
+          <button id="duplicate-sermon" class="ghost">Duplicar</button>
+        </div>
+
+        <div class="sidebar__section">
+          <h2>Seus esboços</h2>
+          <ul id="sermon-list" class="sermon-list"></ul>
+        </div>
+
+        <div class="sidebar__footer">
+          <p>As informações ficam salvas automaticamente no seu navegador.</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="content__header">
+          <div>
+            <input id="sermon-title" type="text" placeholder="Título da pregação" />
+            <input id="sermon-theme" type="text" placeholder="Tema principal" />
+          </div>
+          <div class="header__meta">
+            <input id="sermon-date" type="date" />
+            <input id="sermon-key-verse" type="text" placeholder="Texto-chave" />
+          </div>
+        </header>
+
+        <section class="grid">
+          <div class="card">
+            <div class="card__header">
+              <h3>Estrutura do esboço</h3>
+              <button id="add-outline" class="ghost">Adicionar ponto</button>
+            </div>
+            <ul id="outline-list" class="outline-list"></ul>
+          </div>
+
+          <div class="card">
+            <div class="card__header">
+              <h3>Notas durante a pregação</h3>
+              <div class="chip">Auto-salvamento</div>
+            </div>
+            <textarea id="sermon-notes" rows="14" placeholder="Anote aqui insights, aplicações e ilustrações..."></textarea>
+          </div>
+        </section>
+
+        <section class="grid grid--single">
+          <div class="card">
+            <div class="card__header">
+              <h3>Mapa mental funcional</h3>
+              <div class="mindmap-actions">
+                <input id="mindmap-text" type="text" placeholder="Novo tópico" />
+                <select id="mindmap-parent"></select>
+                <button id="add-mindmap" class="primary">Adicionar</button>
+              </div>
+            </div>
+            <div id="mindmap-tree" class="mindmap-tree"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="outline-item-template">
+      <li class="outline-item">
+        <div class="outline-item__header">
+          <input class="outline-title" type="text" placeholder="Título do ponto" />
+          <div class="outline-item__actions">
+            <button class="outline-up" title="Mover para cima">▲</button>
+            <button class="outline-down" title="Mover para baixo">▼</button>
+            <button class="outline-remove" title="Remover">✕</button>
+          </div>
+        </div>
+        <textarea class="outline-notes" rows="4" placeholder="Detalhes, versículos, aplicações..."></textarea>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
